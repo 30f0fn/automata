@@ -1,0 +1,66 @@
+# include <stdio.h>
+
+/* TODO! */
+int isChar(i) {
+  return 0
+}
+
+/* 
+input is a sequence of symbols
+represent input as comma separated list of 
+transition function delta maps state plus symbol to state
+
+*/
+
+/* input to dfa has form r'1+(01+)*'  */
+/* alphabet has form [0..n] for some n */
+/* machine table spec has one row per state */
+/* and n-1 entries per row */
+/* preceding the table are two ints giving numStates and numSymbols */
+
+/* aux fcn to build transition table */
+int[][] buildTable() {
+  int numStates = 0;
+  int numSymbols = 0;
+  char c;
+  while (c != '\n') {
+    for (c = getchar(); c != '0'; c = getchar()) numStates++;
+    for (c = getchar(); c != '\n'; c = getchar()) numSymbols++;
+  }  
+
+  
+  int numLines;
+  int transition[numStates][numChars];
+  for (int state = 0; state < numStates; state++) {
+    int symbol = 0;
+    int c = getchar();
+    while (c != '\n') {
+      int nextState = 0;
+      while (c != 0) {
+        c = getchar();
+        nextState++;
+      }
+      transition[state][scannedChar] = nextState;
+      scannedChar++;
+    }
+  }
+} 
+
+void main(int argc; char** argv) {  
+  FILE *file;
+  file = fopen(argv[1], "r");
+  if (file) {
+    int table[][] = buildTable(numStates, numSymbols);    
+  }
+  // test that the dfa file was read correctly
+  for (i = 0; i < numStates; i++) {
+    for (j = 0; j < numSymbols; j++) {
+      printf("%d ", j);
+    }
+    printf("\n");
+  }
+
+  
+  
+}
+
